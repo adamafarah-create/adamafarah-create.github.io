@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adam Farah | IST 110 Portfolio</title>
+<meta name="description" content="Adam Farah's IST 110 digital portfolio: assignments, discussion posts, skills and reflections from Introduction to Information Sciences and Technology at Penn State.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a clear, professional student portfolio, confident but calm
+   IDEA: a course binder, one tabbed divider per lesson
+   PICTURE: Adam's own work (infographics, slides, code) laid out on the cover
+   COLOUR and TYPE: Penn State navy field, Pugh blue support, bright sky accent; Roboto Slab + Roboto
+   LAYOUT: cover band, about + skills, then a lesson-by-lesson binder with a sticky lesson index */
+:root{color-scheme:light dark;
+ --bg:light-dark(#f6f8fb,#0b1424);--panel:light-dark(#ffffff,#121f36);--ink:light-dark(#14213a,#e8eef8);
+ --soft:light-dark(#4a5a75,#a9b8d0);--line:light-dark(#dbe3ee,#233452);
+ --navy:#001e44;--beaver:#1e407c;--pugh:#96bee6;--accent:light-dark(#0077c8,#5cb8ff);--refl:light-dark(#eef4fb,#16284a)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 Roboto,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,h4{font-family:"Roboto Slab",Georgia,serif;line-height:1.15;margin:0;text-wrap:balance}
+a{color:var(--accent)}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto}
+.band{padding:clamp(36px,5vw,72px) max(5vw,16px)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;border-bottom:1px solid #ffffff22}
+.top .wrap{display:flex;align-items:center;gap:20px;padding:0 max(5vw,16px);min-height:60px;flex-wrap:wrap}
+.brand{font-family:"Roboto Slab",serif;font-weight:700;color:#fff;text-decoration:none;font-size:18px;margin-right:auto}
+.top nav{display:flex;gap:4px;flex-wrap:wrap}
+.top nav a{color:#dbe8f7;text-decoration:none;padding:10px 12px;border-radius:6px;font-weight:500;font-size:15px}
+.top nav a:hover,.top nav a:focus-visible{background:#ffffff1a;color:#fff}
+
+/* cover */
+.cover{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:auto -10% -40% 40%;height:90%;background:radial-gradient(closest-side,#1e407c,transparent);pointer-events:none}
+.cover .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;position:relative;z-index:1}
+.kicker{color:var(--pugh);font-weight:500;margin:0 0 10px}
+.cover h1{font-size:clamp(38px,6vw,58px)}
+.cover .lead{font-size:18px;color:#d5e3f4;max-width:56ch;margin:18px 0 26px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin:0 0 28px;padding:0;list-style:none}
+.stats b{display:block;font:700 34px/1 "Roboto Slab",serif;color:#fff}
+.stats span{color:var(--pugh);font-size:14px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:8px;font-weight:700;text-decoration:none;background:#fff;color:var(--navy)}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid #ffffff66}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--pugh);outline-offset:2px}
+.collage{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:14px;align-items:start}
+.collage figure{margin:0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 18px 40px #0008,0 0 0 1px #ffffff22}
+.collage .c1{grid-row:span 2;transform:rotate(-2deg)}
+.collage .c2{grid-row:span 2;transform:translateY(28px) rotate(1.5deg)}
+.collage .c3{transform:rotate(2deg)}
+.collage .c4{transform:translateY(6px) rotate(-1deg)}
+.collage img{width:100%;height:100%;object-fit:cover;object-position:top}
+.collage .c1 img,.collage .c2 img{aspect-ratio:1/2.3}
+.collage .c3 img,.collage .c4 img{aspect-ratio:4/3;object-position:left top}
+
+/* about + skills */
+.about .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(24px,4vw,56px)}
+h2{font-size:clamp(28px,3.6vw,38px);margin-bottom:16px}
+.about p{margin:0 0 14px;max-width:62ch}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.skillgroup{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 18px 12px}
+.skillgroup h3{font-size:17px;margin-bottom:10px}
+.skillgroup ul{list-style:none;margin:0;padding:0}
+.skillgroup a{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid var(--line);color:var(--ink);text-decoration:none}
+.skillgroup li:first-child a{border-top:0}
+.skillgroup a span{color:var(--accent);font-weight:700;font-size:14px;white-space:nowrap}
+.skillgroup a:hover{color:var(--accent)}
+
+/* coursework */
+.work{background:var(--panel);border-block:1px solid var(--line)}
+.workhead{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.workhead p{margin:0;color:var(--soft);max-width:60ch}
+.filter{display:flex;gap:6px;flex-wrap:wrap}
+.filter button{font:500 15px Roboto,sans-serif;min-height:44px;padding:0 16px;border-radius:22px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.filter button[aria-pressed=true]{background:var(--beaver);border-color:var(--beaver);color:#fff}
+.lessonnav{display:flex;gap:4px;overflow-x:auto;padding:14px 0 6px;margin-bottom:10px}
+.lessonnav a{flex:none;padding:8px 12px;border-radius:6px;background:var(--bg);border:1px solid var(--line);text-decoration:none;color:var(--ink);font-weight:500;font-size:14px}
+.lessonnav a:hover{border-color:var(--accent);color:var(--accent)}
+@media(min-width:900px){.lessonnav{position:sticky;top:60px;z-index:5;background:var(--panel)}}
+.lesson{display:grid;grid-template-columns:92px minmax(0,1fr);gap:24px;padding:34px 0;border-top:1px solid var(--line)}
+.lnum{font:700 44px/1 "Roboto Slab",serif;color:var(--beaver)}
+:root[data-theme=dark] .lnum{color:var(--pugh)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .lnum{color:var(--pugh)}}
+.lnum span{display:block;font:500 13px Roboto,sans-serif;color:var(--soft);margin-bottom:4px}
+.lbody>h3{font-size:24px;margin:4px 0 16px}
+.item{border:1px solid var(--line);border-radius:10px;background:var(--bg);margin-bottom:16px;overflow:hidden}
+.item[hidden]{display:none}
+.itemhead{padding:16px 20px 0}
+.tag{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:12px;margin-bottom:8px;background:var(--navy);color:#fff}
+.item.d .tag{background:var(--pugh);color:var(--navy)}
+.itemhead h4{font-size:19px}
+.itembody{padding:12px 20px 20px}
+.itembody.withfig{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;align-items:start}
+.what{margin:0 0 14px}
+.refl{background:var(--refl);border-radius:8px;padding:14px 16px;margin-bottom:12px}
+.refl h5{margin:0 0 6px;font:700 14px Roboto,sans-serif;color:var(--accent)}
+.refl p{margin:0}
+details{margin:0 0 12px}
+summary{cursor:pointer;font-weight:500;color:var(--accent);min-height:32px;display:flex;align-items:center}
+.post{border-left:3px solid var(--line);padding:4px 0 4px 16px;margin-top:6px;color:var(--soft)}
+.post p{margin:0 0 10px}
+.pdf{display:inline-flex;align-items:center;min-height:40px;font-weight:700;text-decoration:none}
+.pdf::before{content:"";width:14px;height:18px;margin-right:8px;border:2px solid currentColor;border-radius:2px}
+.shots{display:grid;gap:10px}
+.shots.tall{max-width:240px;justify-self:center}
+.shot{padding:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;cursor:zoom-in;transition:transform .2s,box-shadow .2s}
+.shot:hover{transform:translateY(-2px);box-shadow:0 8px 20px #0002}
+.shots.tall .shot img{max-height:520px;width:100%;object-fit:cover;object-position:top}
+
+/* closing */
+.closing .wrap{max-width:820px}
+.closing p{font-size:17.5px;margin:0 0 16px}
+footer{background:var(--navy);color:#cfdcee;padding:34px max(5vw,16px)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:#fff}
+
+/* lightbox */
+dialog{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:92vh}
+dialog::backdrop{background:#000c}
+dialog img{max-height:86vh;width:auto;margin:0 auto;border-radius:6px;background:#fff}
+dialog button{position:fixed;top:14px;right:14px;min-width:44px;min-height:44px;border-radius:22px;border:0;background:#fff;color:#000;font:700 15px Roboto,sans-serif;padding:0 16px;cursor:pointer}
+
+@media(max-width:860px){
+ .cover .wrap,.about .wrap{grid-template-columns:minmax(0,1fr)}
+ .collage{max-width:520px}
+ .itembody.withfig{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:600px){
+ .skills{grid-template-columns:minmax(0,1fr)}
+ .lesson{grid-template-columns:minmax(0,1fr);gap:6px}
+ .lnum{font-size:32px}.lnum span{display:inline;margin-right:6px}
+ .top nav a{padding:10px 8px}
+ .itemhead,.itembody{padding-inline:14px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+ <a class="brand" href="#top">Adam Farah</a>
+ <nav aria-label="Sections"><a href="#about">About</a><a href="#skills">Skills</a><a href="#coursework">Coursework</a><a href="#reflection">Reflection</a></nav>
+</div></header>
+
+<main id="top">
+<section class="cover band"><div class="wrap">
+ <div>
+  <p class="kicker">IST 110: Introduction to Information Sciences and Technology · Penn State</p>
+  <h1>Adam Farah's IST 110 digital portfolio</h1>
+  <p class="lead">A lesson-by-lesson record of everything I built, researched and wrote this semester, from decoding binary by hand to writing SQL, building a webpage and arguing a position on cybercrime policy. Each piece includes a reflection on how I approached it and what I took away.</p>
+  <ul class="stats">
+   <li><b>12</b><span>lessons</span></li>
+   <li><b>14</b><span>assignments</span></li>
+   <li><b>9</b><span>discussion posts</span></li>
+  </ul>
+  <div class="btns"><a class="btn" href="#coursework">See my coursework</a><a class="btn ghost" href="#about">About me</a></div>
+ </div>
+ <div class="collage" aria-hidden="true">
+  <figure class="c1"><img src="l10-cia.jpg" alt=""></figure>
+  <figure class="c2"><img src="l03-computational.jpg" alt=""></figure>
+  <figure class="c3"><img src="l08-osint.jpg" alt=""></figure>
+  <figure class="c4"><img src="l06-python.jpg" alt=""></figure>
+ </div>
+</div></section>
+
+<section class="about band" id="about"><div class="wrap">
+ <div>
+  <h2>About me</h2>
+  <p>I'm Adam Farah, a third-year Business Analytics and Information Systems (BAIS) major at Penn State University Park with a minor in fintech. I'm from the DC area and spent my first two years at Penn State Harrisburg before moving to University Park.</p>
+  <p>I want to build a career where business analysis and data analytics meet: taking messy data, finding what matters and turning it into a recommendation people can act on. Outside of class, I'm a project analyst on the Penn State American Marketing Association's consulting and data analytics team and a trainee in Nittany Lion Consulting Group's Consultant Training Program.</p>
+  <p>When I'm not working on data, I'm usually playing basketball or a game of some kind.</p>
+  <p><a href="#reflection">Read what this course meant to me</a></p>
+ </div>
+ <div id="skills">
+  <h2>Skills I built</h2>
+  <div class="skills"><div class="skillgroup"><h3>Data and programming</h3><ul><li><a href="#l06">Python conditionals<span>L06</span></a></li><li><a href="#l07">SQL queries<span>L07</span></a></li><li><a href="#l09">HTML<span>L09</span></a></li><li><a href="#l09">JavaScript events<span>L09</span></a></li><li><a href="#l07">Excel VBA macros<span>L07</span></a></li><li><a href="#l02">Binary and ASCII<span>L02</span></a></li></ul></div><div class="skillgroup"><h3>Systems and infrastructure</h3><ul><li><a href="#l04">CPU and hardware<span>L04</span></a></li><li><a href="#l05">Operating system selection<span>L05</span></a></li><li><a href="#l09">Internet, DNS and HTTP<span>L09</span></a></li><li><a href="#l07">Database design<span>L07</span></a></li></ul></div><div class="skillgroup"><h3>Security and privacy</h3><ul><li><a href="#l10">CIA triad<span>L10</span></a></li><li><a href="#l08">OSINT techniques<span>L08</span></a></li><li><a href="#l11">Digital footprint management<span>L11</span></a></li><li><a href="#l12">Cybercrime policy<span>L12</span></a></li></ul></div><div class="skillgroup"><h3>Analysis and communication</h3><ul><li><a href="#l01">Research summaries<span>L01</span></a></li><li><a href="#l03">Computational thinking<span>L03</span></a></li><li><a href="#l05">Client recommendations<span>L05</span></a></li><li><a href="#l10">Infographic design<span>L10</span></a></li><li><a href="#l08">Presentations<span>L08</span></a></li><li><a href="#l12">Persuasive writing<span>L12</span></a></li></ul></div></div>
+ </div>
+</div></section>
+
+<section class="work band" id="coursework"><div class="wrap">
+ <div class="workhead">
+  <div><h2>Coursework</h2><p>Every individual assignment and discussion post from the course, organized by lesson. Select any image to enlarge it.</p></div>
+  <div class="filter" role="group" aria-label="Show">
+   <button type="button" data-f="all" aria-pressed="true">All work</button>
+   <button type="button" data-f="a" aria-pressed="false">Assignments</button>
+   <button type="button" data-f="d" aria-pressed="false">Discussions</button>
+  </div>
+ </div>
+ <nav class="lessonnav" aria-label="Lessons"><a href="#l01">L01</a><a href="#l02">L02</a><a href="#l03">L03</a><a href="#l04">L04</a><a href="#l05">L05</a><a href="#l06">L06</a><a href="#l07">L07</a><a href="#l08">L08</a><a href="#l09">L09</a><a href="#l10">L10</a><a href="#l11">L11</a><a href="#l12">L12</a></nav>
+ <section class="lesson" id="l01"><div class="lnum"><span>Lesson</span>01</div><div class="lbody"><h3>Information in the information age</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Article summary: Information Overload in the Information Age</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Summarized Peter Gordon Roetzel&#x27;s literature review on information overload: how it is defined, what drives it (deadlines, task complexity, too many options, social media) and how it hurts decision quality across accounting, finance, marketing and IS research.</p>
+    <div class="refl"><h5>Reflection</h5><p>I started by mapping the article&#x27;s structure before writing, because a long literature review is easy to get lost in. The hardest part was cutting it down to the core ideas without dropping the inverted U-curve, which I thought was the most useful point: more information helps decisions only up to a peak, then it hurts. That idea stuck with me as a future analyst. My job is not to hand people more data, it is to hand them the right amount of it. This assignment set up the whole course for me by framing information as something that has to be managed, not just collected.</p></div>
+    <a class="pdf" href="L01-information-overload-summary.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l01-summary.jpg" aria-label="Enlarge: First page of my summary of Roetzel&#x27;s article"><img src="l01-summary.jpg" alt="First page of my summary of Roetzel&#x27;s article" loading="lazy"></button></div>
+  </div>
+</article><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>Introduction and career field: Data Analytics and Business Intelligence</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Introduced myself and researched an IST career field that matches my BAIS major, including its strengths, weaknesses, common job titles and the tools it uses.</p>
+    <div class="refl"><h5>Reflection</h5><p>Researching data analytics and BI confirmed the direction I want to go after graduation. Writing out the field&#x27;s weaknesses was the most useful part, since it made me think about data quality and the difference between correlation and causation, which come up in every analysis I do. It also gave me a baseline: at the start of the semester I listed Excel and basic Python as my skills, and this portfolio shows how much that list grew.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>Hello everybody, I am Adam Farah, pursuing a degree in Business Analytics and Information Systems with a minor in Fintech at Penn State. For this lesson, I have researched Data Analytics/Business Intelligence as it perfectly matches my major. The best thing about this field is its capacity to process raw data leaving actionable insights. It uses many tools like SQL, Python, and Tableau. Still, it also has some weaknesses such as relying only on the quality of the original data. There is a chance for people to confuse causation with correlation, and faster data analysis than setting common goals for data. Among the most common job titles in this area, the most well-known are Business Analyst, Data Analyst, BI Developer, and Data Scientist. I can say that I am familiar with Excel, and have basic knowledge of Python programming language and data analysis tools. I’m looking forward to working on improving my competencies in this area this semester. In addition to my studies, I am fond of basketball and game of any type.</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l02"><div class="lnum"><span>Lesson</span>02</div><div class="lbody"><h3>Data representation</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Binary and ASCII conversion</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Explained how computers store data in bits and bytes, then converted binary strings to decimal and to ASCII text by hand using positional notation.</p>
+    <div class="refl"><h5>Reflection</h5><p>My approach was to convert one byte at a time: binary to decimal with place values, then decimal to a letter with the ASCII table. The challenge was keeping track of byte boundaries in long strings. One miscount shifts every letter after it, so I learned to slow down and check my grouping. The bigger lesson was that every value in a spreadsheet, database or Python program is stored this way underneath, which is why data types and storage size matter when I work with data.</p></div>
+    <a class="pdf" href="L02-binary-and-ascii.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l02-binary.jpg" aria-label="Enlarge: My write-up on binary and ASCII conversion"><img src="l02-binary.jpg" alt="My write-up on binary and ASCII conversion" loading="lazy"></button></div>
+  </div>
+</article><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>Translating binary messages</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Decoded three binary strings and described the process, the main difficulty and why it matters for data analytics.</p>
+    <div class="refl"><h5>Reflection</h5><p>Decoding the messages myself made the idea of encoding concrete. The repeated mistake I had to watch for was the same as in the assignment: losing my place between bytes. It showed me that small errors in how data is read can corrupt the entire output, which is the same reason data validation matters in analytics work.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>The three binary strings are translated as follows: &quot;Hello,&quot; &quot;This is a binary code,&quot; and &quot;I love data.&quot;</p><p>The process I went through to translate each binary string into words included first interpreting the binary string in ASCII format, which really comes down to following some simple steps. Each 8-bit byte was converted into decimal, a process which leads to mapping binary into decimal using positional notation. For example, each byte of the binary string was processed separately. For instance, 01001000 forms 64 + 8 = 72, which corresponds to letter H in its upper-case form.</p><p>The biggest difficulty of the exercise is that because long strings contain many bytes, one has to be very careful about remembering where the next byte starts and ends. One small failure in counting the bytes can lead to total miscounting. If one thought that binary coding is easy, he or she should try to complete this exercises.</p><p>Besides that, the exercise revealed the fact that in data analytics, real life data is represented as a binary. Thus, having an understanding of why one should be careful while counting the number of bits after moving on to data processing.</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l03"><div class="lnum"><span>Lesson</span>03</div><div class="lbody"><h3>Computational thinking and analytics</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Infographic: Different computational practices</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Designed an infographic explaining decomposition, pattern recognition, abstraction and algorithms, and how together they apply to problems from cleaning data to designing an application.</p>
+    <div class="refl"><h5>Reflection</h5><p>I wanted each practice to be understandable in one or two sentences with a visual next to it, so I planned the layout as four equal blocks before adding any text. The challenge was writing short definitions that were still accurate. Making the infographic showed me that I already use these steps in analytics projects: I break a messy dataset into parts, look for patterns, ignore columns that don&#x27;t matter and build a repeatable process.</p></div>
+    <a class="pdf" href="L03-computational-thinking-infographic.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots tall"><button class="shot" type="button" data-full="l03-computational.jpg" aria-label="Enlarge: My computational practices infographic"><img src="l03-computational.jpg" alt="My computational practices infographic" loading="lazy"></button></div>
+  </div>
+</article><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>Descriptive, predictive and prescriptive analytics</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Reflected on which type of analytics I was most and least comfortable with.</p>
+    <div class="refl"><h5>Reflection</h5><p>This post was honest about where I was confused: the line between predictive and prescriptive analytics. Writing it out helped me work through it. Predictive tells you what is likely to happen; prescriptive recommends what to do about it. Since then I have been able to explain the difference clearly, which matters in consulting work where the client wants a recommendation, not just a forecast.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>I think I am okay with descriptive analytics, as it simply gives me details about what happened in the past. That makes me feel at ease. The issue arises when I talk about predictive and prescriptive analytics since I struggle to differentiate between both. On one hand, predictive analytics is supposed to explain what is going to happen, while prescriptive analytics tells what action needs to be taken in response to it. However, in practice, it turns out to be quite challenging for me to explain when one begins and the other one ends. My interpretation is that a prediction can already give us an idea of actions that need to be implemented, which makes me think if it is already prescriptive if a person acts upon a prediction, rather than relying on a tool that generates recommendations.</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l04"><div class="lnum"><span>Lesson</span>04</div><div class="lbody"><h3>Computer hardware</h3><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>CPU components and the environmental impact of hardware</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Researched how the CPU works (fetch, decode, execute; clock speed; cores; cache) and the environmental cost of manufacturing and discarding devices.</p>
+    <div class="refl"><h5>Reflection</h5><p>I chose these two topics because one is about how hardware performs and the other is about what it costs the planet. The hardest part was explaining clock speed and core count without getting too technical. The e-waste numbers surprised me most: only 22% of 2022&#x27;s e-waste was properly handled. It made me think about hardware decisions as business decisions with long-term costs, not just specs on a sheet.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>2. Component Functions: The CPU executes the commands contained in the instructions, and it does not only execute the computations, it also serves as an efficient interpreter. The operation cycle of the CPU involves retrieving the data from memory, decoding it, an executing the command. The CPU makes billions of cycles within a second. The clock speed is a measure giving average number of cycles performed during one second while the core count shows the maximum number of tasks that can be executed at a time, thus in the case of the processors with multiple cores it is possible to execute a number of operations at the same time. Cache memory is located inside the chip and works on the basis of the principle of closeness. The above-mentioned characteristics put limits on the processing ability of any CPU regardless of the tasks at hand and whether it is conducting browser loading or working in the spreadsheet. Open and do what has been meant if there is no hyper-processor present.</p><p>Source: https://www.savemyexams.com/gcse/computer-science/ocr/22/revision-notes/1-systems-architecture/cpu-architecture-performance-and-embedded-systems/characteristics-of-the-cpu/</p><p>7. Environmental Impact:</p><p>Making hardware requires a huge amount of energy, as well as extracting metals such as copper and cobalt, so emissions from the production process constitute the bulk of lifetime emissions in laptops and phones, and hence also during operation, since electricity is consumed during this phase. Besides, the process of changing devices frequently causes electricity consumption and emissions to increase. However, the most serious factor is that the Global E-waste Monitor report published by the United Nations in 2024 shows that there were about 62 million metric tons of e-waste produced in the world in 2022, and only 22% of it was disposed of properly, while the others were sent to landfills or burnt, which creates pollution because of toxic metals from the e-waste. To increase sustainability, it is essential to innovate and produce devices which can be easily repaired and upgraded, for example, laptops made by Framework. Source: https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-Waste-Monitor-2024.aspx</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l05"><div class="lnum"><span>Lesson</span>05</div><div class="lbody"><h3>Operating systems and software</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Operating system recommendations for start-up clients</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Compared Windows, macOS and Linux, then recommended the best fit for three clients: a nonprofit social service organization, an interior design firm and a social media advertising agency.</p>
+    <div class="refl"><h5>Reflection</h5><p>I treated this like a consulting case: list each option&#x27;s pros and cons, then match them to each client&#x27;s budget, software needs and staff. The challenge was that no OS is best everywhere, so I had to justify each pick by what that client actually needed, such as nonprofit discounts and Office compatibility for the nonprofit and color accuracy and Adobe support for the design firm. This is the same requirements-first thinking a business analyst uses when recommending any system.</p></div>
+    <a class="pdf" href="L05-operating-system-recommendations.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l05-os.jpg" aria-label="Enlarge: First page of my OS recommendation report"><img src="l05-os.jpg" alt="First page of my OS recommendation report" loading="lazy"></button></div>
+  </div>
+</article><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>A letter to Excel</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Wrote a thank-you letter to the piece of software I rely on most, then reflected on what it revealed about my relationship with technology.</p>
+    <div class="refl"><h5>Reflection</h5><p>This was the most personal post of the semester. Writing to Excel made me realize how much one tool shaped my confidence with data and, honestly, my choice of major. It also made me think about how much we depend on software we rarely question, which ties into the course theme that technology choices carry real consequences for people and businesses.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>Dear Excel,</p><p>I’ve been using you for a long time, yet I don’t think I’ve ever given you a proper “thank you”. You were there for me when I was still learning what a pivot table was and never judged my repeated mistakes when I entered the same wrong formula five times. All you did was show me an error message and allow me to try my formula again. All of my class assignments and projects have always begun with you open in a tab, helping me turn the data from something scary to something that I can actually use.</p><p>You’re not perfect, though. You freeze just when I need to save everything, one wrongly placed cell reference can ruin my afternoon, and I will never understand why you transform perfectly ordinary numbers into dates. Still, I forgive you for those mistakes, because I know what you can do. I’ve acquired different tools since our first meeting, and, even though I’ve come to respect Python, I always return to you. You are the first software I open and the last one I close. Thank you for making me better at what I do, Adam Farah</p><p>I opted for Excel because it is the program I’m most comfortable with. While composing this letter, I realized how funny it is to think of the little things that irritate me at the time, but which I can laugh at later. My experience with Excel helped me understand that I highly depended on one tool for my daily tasks and how crucial decisions in business and education were based on technologies we do not even give a second thought about. Thus, I realized that my connection with Excel is deeper than a practical one. This program helped me gain my first self-confidence when dealing with data, which is the very reason for my career choice in business and data analytics.</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l06"><div class="lnum"><span>Lesson</span>06</div><div class="lbody"><h3>Programming</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Python: Make the computer decide</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Ran, changed and predicted Python code, then wrote my own if/elif/else program that responds to a daily step count, and found and fixed a deliberate syntax error.</p>
+    <div class="refl"><h5>Reflection</h5><p>I came in at a 5 out of 5 in confidence because I took IST 140 last semester, so I focused on making my program clean and testing each branch. I tested values that hit all three outcomes and confirmed that changing steps from 4,000 to 7,500 moved the output from &quot;Take a walk.&quot; to &quot;Keep walking.&quot; The error-fixing step, a missing colon, is a good reminder that small syntax mistakes stop everything. The pattern of data, rules, decision, output is the same logic I use when building conditional formulas in Excel.</p></div>
+    <a class="pdf" href="L06-python-make-the-computer-decide.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l06-python.jpg" aria-label="Enlarge: My Python step-count program and its output"><img src="l06-python.jpg" alt="My Python step-count program and its output" loading="lazy"></button></div>
+  </div>
+</article><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>Machine language, assembly and high-level languages</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Explained the differences between levels of programming languages and the performance trade-offs between low-level control and high-level reliability.</p>
+    <div class="refl"><h5>Reflection</h5><p>Researching this helped me understand why Python is so easy to work with: it hides memory management and hardware details that low-level languages expose. The challenge was explaining trade-offs like garbage collection versus manual memory management in plain language. It gave me more respect for what happens beneath the tools I use every day.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>1.Fundamental Differences:</p><p>Only machine language can be directly executed by a processor. This language is in the form of code in binary or hexadecimal form. Assembly language can be seen as a visible layer over machine code, whereby every mnemonic can be almost fully matched to a single machine instruction. Although assembly code is not as easy to read as raw numbers, it is still tied to the same hardware. High-level programming languages like Python, Java, and C# allow expressing logic by using variables, functions, loops, and objects, although the method of code translation is the same.</p><p>4.Performance Trade-Offs:</p><p>While machine code and assembly can achieve the highest speeds of execution, the modern optimization compilers can beat the average results of hand-written code, which allows assembly to be used preferably in small block of code. On the other hand, a programmer working with low level programming languages will have to write memory management procedures himself, which allows him or her to have a broad control but makes the programmer vulnerable to such defects as buffer overflow. In contrast, high-level programming languages like Java and Python employ garbage collection, which eliminates this error but adds additional expenses of execution time and possible performance losses. Assembly code can take advantages of some processor developer’s features, while the majority of high-level programming languages use library functions or operating system functions and compromise control for advantages in terms of reliability and portability.</p><p>Bryant, R. E., &amp; O&#x27;Hallaron, D. R. (2015). Computer systems: A programmer&#x27;s perspective (3rd ed.). Pearson.</p><p>Patterson, D. A., &amp; Hennessy, J. L. (2020). Computer organization and design RISC-V edition: The hardware/software interface (2nd ed.). Morgan Kaufmann.</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l07"><div class="lnum"><span>Lesson</span>07</div><div class="lbody"><h3>Databases</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>DNA databases and solving cold cases</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Researched how forensic databases helped solve a decades-old case and argued that DNA samples from people who are not convicted should be deleted automatically.</p>
+    <div class="refl"><h5>Reflection</h5><p>I read the FBI case write-up closely and then looked into the federal law on removing DNA records. The challenge was separating what the database did from what the fingerprints did, since the case relied on both. Forming my own position on deleting samples from people who are not convicted made me think about databases as something that affects people&#x27;s rights, not just a place to store records.</p></div>
+    <a class="pdf" href="L07-dna-databases-cold-cases.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l07-dna.jpg" aria-label="Enlarge: First page of my DNA databases assignment"><img src="l07-dna.jpg" alt="First page of my DNA databases assignment" loading="lazy"></button></div>
+  </div>
+</article><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Pandora&#x27;s Music Genome Project</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Explored how Pandora&#x27;s analysts rate songs on hundreds of attributes, built a station from Native Deen and analyzed what the results suggest about the underlying database structure.</p>
+    <div class="refl"><h5>Reflection</h5><p>This one was fun because I used an artist I actually listen to. Working backward from the station&#x27;s song choices to the database design was the challenge. I concluded that each song is a record with many rated attributes, genres have different attribute sets and thumbs-up data is stored separately to link users to songs. It showed me how database structure directly powers a product&#x27;s recommendations.</p></div>
+    <a class="pdf" href="L07-music-genome-project.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l07-music.jpg" aria-label="Enlarge: First page of my Music Genome Project analysis"><img src="l07-music.jpg" alt="First page of my Music Genome Project analysis" loading="lazy"></button></div>
+  </div>
+</article><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>SQL queries in the W3Schools database</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Wrote and ran SQL statements against a sample customer database, using SELECT, WHERE, ORDER BY, DISTINCT and INSERT INTO, and captured each result.</p>
+    <div class="refl"><h5>Reflection</h5><p>I ran each query, then compared the record counts to check I understood what it was doing. For example, SELECT City returned 91 rows while SELECT DISTINCT City returned 69, which showed me exactly how duplicates affect results. SQL is one of the most requested skills in the analyst job postings I look at, so getting hands-on practice was one of the most directly useful parts of the course.</p></div>
+    <a class="pdf" href="L07-sql-queries.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l07-sql.jpg" aria-label="Enlarge: One of my SQL queries and its results"><img src="l07-sql.jpg" alt="One of my SQL queries and its results" loading="lazy"></button></div>
+  </div>
+</article><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>Excel macro: combining monthly report files</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Explained a VBA macro that loops through a folder of workbooks and combines them into one master sheet, including its benefits, risks and how a beginner could learn it.</p>
+    <div class="refl"><h5>Reflection</h5><p>I chose a macro that solves a problem I can picture in an internship: merging a dozen monthly files by hand. Explaining the code line by line (Dir, the Do While loop, End(xlUp)) forced me to actually understand it rather than just copy it. I also learned that macros are a real security risk, which connected nicely to the security lessons later in the course.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>1.  One macro in the Excel program that I found intriguing combines several monthly report files from different workbooks into one sheet similar to a sales manager who gets a unique file from each of the 12 locations every month.</p><p>2.  Manually opening the files and copying each one&#x27;s data is long and prone to errors including omitting files, overwriting rows or repeating the header. This macro does everything with a single click and produces uniform results every time.</p><p>3.  The macro is written in VBA, and it goes through all the files in the folder. The Dir function locates every .xlsx file, the Do While loop repeats the steps while there are files left, and End(xlUp) allows identifying the last row where new rows can be added. For example, wb.Sheets(1).Range(“A2:F” &amp; lastRow).Copy ws.Cells(Rows.Count, “A”).End(xlUp).Offset(1) copies everything except for the header and pastes it into the first empty row of the master sheet. All the source files are closed after the copying operation without saving them to allow the files to remain unchanged.</p><p>4.  This macro converts an assignment that should take 30 minutes into a task that takes only a few seconds, and it scales well since handling 50 documents is as simple as dealing with 12 files. However, it may not work properly if the layout of a file is different or the path to a folder is unique, and its use cannot be reverted, so a user is encouraged to create a backup of information.</p><p>5.  Users are allowed to change the path for the folder, type of file, and range of cells copied. For example, instead of modifying the code, users could be provided with the folder selection option or an additional column showing the origin of a row.</p><p>6.  Through Microsoft Learn’s Excel VBA reference, users can gain insight into the objects and methods which are being utilized while they can watch how to loop through files in Excel Campus and Wise Owl Tutorials on YouTube. The macro recorder can also help a novice user to learn what code is being written while performing simple tasks in Excel.</p><p>7.  Macros contain dangerous code, so users should turn on macros only if they trust the source and should always check the code in the VBA editor (Alt + F11) before launching the macros. Microsoft has made it impossible for macros to be launched from the files downloaded via the web, and keeping the trusted files in Trust Location would be the safest option rather than changing all Excel macro settings.</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l08"><div class="lnum"><span>Lesson</span>08</div><div class="lbody"><h3>Information retrieval and OSINT</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Presentation: OSINT, from public data to insight</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Built a slide deck on open source intelligence covering online searching with advanced operators, social media analysis, domain research, real-world use cases and the ethics of collecting public information.</p>
+    <div class="refl"><h5>Reflection</h5><p>I organized the deck around three techniques so each slide had one clear job. The challenge was the volume of sources; I used ten and had to decide what was worth a bullet. Learning search operators like site: and filetype: changed how I research, and I already use them for company research during my internship search. The ethics slide was the most important one to me, because the same techniques can be used to help or to harass.</p></div>
+    <a class="pdf" href="L08-osint-presentation.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l08-osint.jpg" aria-label="Enlarge: Title slide of my OSINT presentation"><img src="l08-osint.jpg" alt="Title slide of my OSINT presentation" loading="lazy"></button><button class="shot" type="button" data-full="l08-osint-dorking.jpg" aria-label="Enlarge: Slide on online searching and Google operators"><img src="l08-osint-dorking.jpg" alt="Slide on online searching and Google operators" loading="lazy"></button></div>
+  </div>
+</article></div></section>
+<section class="lesson" id="l09"><div class="lnum"><span>Lesson</span>09</div><div class="lbody"><h3>The Internet and the web</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Building a basic webpage in HTML</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Wrote a simple HTML page with a heading, a paragraph, a link to Penn State and an image, and checked the rendered result.</p>
+    <div class="refl"><h5>Reflection</h5><p>This was my first time writing HTML by hand. The challenge was getting the attributes right, like the href and the image src and width. Seeing my code turn into a page right away made the structure of the web make sense. It also prepared me for this portfolio, since the site you are reading is built with the same HTML basics.</p></div>
+    <a class="pdf" href="L09-basic-webpage-html.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l09-html.jpg" aria-label="Enlarge: My HTML code and the rendered webpage"><img src="l09-html.jpg" alt="My HTML code and the rendered webpage" loading="lazy"></button></div>
+  </div>
+</article><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>JavaScript events and conditions</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Compared a script that runs on page load with one that runs on a button click, then tested if, else and else if statements and explained which control structure is most useful.</p>
+    <div class="refl"><h5>Reflection</h5><p>Comparing the two examples side by side helped me see the difference between code that runs immediately and code that waits for a user action. I argued that else if is the most useful structure because real decisions usually have more than two outcomes. It was the same logic as my Python program in Lesson 6, which helped me see that the ideas carry across languages.</p></div>
+    <a class="pdf" href="L09-javascript-events-and-conditions.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l09-js-events.jpg" aria-label="Enlarge: My JavaScript onclick example showing the date and time"><img src="l09-js-events.jpg" alt="My JavaScript onclick example showing the date and time" loading="lazy"></button></div>
+  </div>
+</article><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>The Internet versus the web</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Explained the difference between the Internet and the World Wide Web, the technologies underneath (packets, IP, DNS, HTTP, HTML) and the ethical challenges online.</p>
+    <div class="refl"><h5>Reflection</h5><p>The road and traffic comparison was how I finally kept the Internet and the web straight. Tracing what happens when you type a site name, from DNS to the server to the HTML coming back, made the whole system less abstract. Writing about tracking-based business models also set up the privacy topics in Lesson 11.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>Internet and the Web:  The Internet is an international network that links billions of computers and gadgets through wires, routers, and protocols such as TCP/IP. The World Wide Web is one of the services operating on the Internet. To summarize, the Internet functions as a road while the Web functions as traffic on this road.</p><p>Underlying Technologies: Data is sent in packets where routers route the traffic based on IP address and names such as amazon.comLinks to an external site. are translated into IP addresses by DNS. A web browser receives a request in order to request the page from a web server and obtain HTML data. The web allows linking different pages to web servers through hyperlinks.</p><p>Challenges and Ethical Considerations: A lot of free services available online make money by means of monitoring people’s activities on the web. It creates questions of privacy. Phishing, breaches of data, and inequality in broadband access create other challenges. More privacy measures, improved practices, and investment into broadband and digital literacy should help solve many problems occurring online.</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l10"><div class="lnum"><span>Lesson</span>10</div><div class="lbody"><h3>Information security</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Infographic: The CIA triad</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Designed an infographic on confidentiality, integrity and availability, with the NIST definition, what failure looks like and the main controls for each.</p>
+    <div class="refl"><h5>Reflection</h5><p>I framed each part of the triad as a simple question (who can see it, can you trust it, can you reach it) so a non-technical reader could follow it. The challenge was fitting definitions, failures and controls into a small space without crowding the design. The main lesson is that a system is only secure if it meets all three goals. That is a useful checklist for any data system I work with.</p></div>
+    <a class="pdf" href="L10-cia-triad-infographic.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots tall"><button class="shot" type="button" data-full="l10-cia.jpg" aria-label="Enlarge: My CIA triad infographic"><img src="l10-cia.jpg" alt="My CIA triad infographic" loading="lazy"></button></div>
+  </div>
+</article></div></section>
+<section class="lesson" id="l11"><div class="lnum"><span>Lesson</span>11</div><div class="lbody"><h3>Privacy and databases</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Auditing my own digital footprint</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Reviewed what apps and Google store about me, searched my own name and checked people-search sites, then documented how to opt out of those listings.</p>
+    <div class="refl"><h5>Reflection</h5><p>This was the assignment that changed my behavior the most. I went through my Google account and found far more stored history than I expected, so I turned on auto-delete, paused location history and turned off ad personalization. Finding my details on a people-search site was uncomfortable. I also learned that opting out only hides a listing; the data still exists. It made privacy feel personal rather than theoretical.</p></div>
+    <a class="pdf" href="L11-digital-footprint-audit.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   
+  </div>
+</article><article class="item d" data-kind="d">
+  <div class="itemhead"><span class="tag">Discussion</span><h4>Database technology and personal privacy</h4></div>
+  <div class="itembody">
+   <div class="text">
+    <p class="what">Discussed how databases behind social media, banking and shopping affect privacy, using Pew Research and academic research to support my position.</p>
+    <div class="refl"><h5>Reflection</h5><p>I used research to push back on the idea that young people don&#x27;t care about privacy, since Pew found most Americans worry about how companies use their data. Finding credible sources and fitting them into a short post was the challenge. My conclusion, that companies holding the data carry the responsibility to protect it, connects to what I want to do as an analyst: work with data responsibly.</p></div>
+    <details><summary>Read my full post</summary><div class="post"><p>With the increased usage of social media channels, Internet banking, and online shopping platforms, database technologies have secured a significant role in people&#x27;s lives. The youth may feel fine about revealing stuff through social networks but it does not necessarily mean that they are indifferent to privacy concerns. According to Pew Research Center (2023), the majority of Americans (81%) worry about how corporations deal with personal information showing the importance of privacy issues. Acquisti et al. (2015) suggest that elders do not always realize the consequences of sharing their personal information online; they might not even be aware of where exactly the information they give to some online service would end up. An example of such a situation could be sharing one&#x27;s location through the fitness app. I believe that even though database technology enjoys many advantages, the responsibility of protecting the personal information from misuse lies with the companies.</p><p>Acquisti, A., Brandimarte, L., &amp; Loewenstein, G. (2015). Privacy and human behavior in the age of information. Science, 347(6221), 509–514. https://doi.org/10.1126/science.aaa1465</p><p>Pew Research Center. (2023, October 18). How Americans view data privacy. https://www.pewresearch.org/internet/2023/10/18/views-of-data-privacy-risks-personal-data-and-digital-privacy-laws/</p></div></details>
+   </div>
+   
+  </div>
+</article></div></section>
+<section class="lesson" id="l12"><div class="lnum"><span>Lesson</span>12</div><div class="lbody"><h3>Cybercrime and ethics</h3><article class="item a" data-kind="a">
+  <div class="itemhead"><span class="tag">Assignment</span><h4>Position paper: Cybercrime, rehabilitation vs retribution</h4></div>
+  <div class="itembody withfig">
+   <div class="text">
+    <p class="what">Argued that rehabilitation should be the preferred approach for young and first-time cyber offenders, using UK National Crime Agency data and research on deterrence, while addressing the case for retribution.</p>
+    <div class="refl"><h5>Reflection</h5><p>I started with the research and let it shape my position, rather than picking a side first. The NCA data on young offenders and the low reoffending rate in the Cyber Prevent program convinced me. The challenge was taking the other side seriously, so I agreed that organized and profit-driven hackers should still face prison. Writing this pulled together the ethics thread that ran through the whole course, from OSINT to privacy to security.</p></div>
+    <a class="pdf" href="L12-cybercrime-position-paper.pdf" target="_blank" rel="noopener">Open the full submission (PDF)</a>
+   </div>
+   <div class="shots"><button class="shot" type="button" data-full="l12-essay.jpg" aria-label="Enlarge: First page of my cybercrime position paper"><img src="l12-essay.jpg" alt="First page of my cybercrime position paper" loading="lazy"></button></div>
+  </div>
+</article></div></section>
+</div></section>
+
+<section class="closing band" id="reflection"><div class="wrap">
+ <h2>Looking back on the course</h2>
+ <p>I came into IST 110 comfortable with Excel and some Python from IST 140, and I assumed most of the course would be review. It wasn't. The technical pieces stretched me in new directions, especially SQL, HTML and JavaScript, but the bigger change was in how I think about information itself.</p>
+ <p>The course moved from how data is stored (binary, hardware, operating systems) to how it is organized and used (programming, databases, the web) and finally to what can go wrong (security, privacy, cybercrime). Seeing it in that order showed me that every technical decision has a human side. The digital footprint audit in Lesson 11 made that personal: I changed my own privacy settings because of it.</p>
+ <p>For my career in business and data analytics, the most valuable takeaways were hands-on SQL practice, sharper research habits from the OSINT project and the habit of matching a recommendation to what a client actually needs, which I practiced in the operating systems assignment. I'll keep building on this portfolio as I add more projects.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+ <span>Adam Farah · IST 110 · Penn State University Park</span>
+ <span>Contact: <a href="mailto:aaf5673@psu.edu">aaf5673@psu.edu</a></span>
+</div></footer>
+
+<dialog id="lb" aria-label="Enlarged image"><button type="button" id="lbclose">Close</button><img id="lbimg" alt=""></dialog>
+
+<script>
+{
+ const btns=document.querySelectorAll('.filter button');
+ const items=document.querySelectorAll('.item');
+ const lessons=document.querySelectorAll('.lesson');
+ btns.forEach(b=>b.addEventListener('click',()=>{
+  const f=b.dataset.f;
+  btns.forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+  items.forEach(it=>{it.hidden=!(f==='all'||it.dataset.kind===f)});
+  lessons.forEach(l=>{l.hidden=!l.querySelector('.item:not([hidden])')});
+ }));
+ const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+ document.querySelectorAll('.shot').forEach(s=>s.addEventListener('click',()=>{
+  lbimg.src=s.dataset.full;lbimg.alt=s.querySelector('img').alt;
+  if(lb.showModal)lb.showModal();
+ }));
+ document.getElementById('lbclose').addEventListener('click',()=>lb.close());
+ lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+}
+</script>
+</body>
+</html>
